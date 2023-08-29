@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2023 Daniel Židek <danielzidek@post.cz>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+
 # CHANGES
 
 Use this file to document changes made to the designs. 

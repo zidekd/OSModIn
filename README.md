@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2023 Daniel Židek <danielzidek@post.cz>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+
 # OpenOscilloscopeModule
 
 This repository contains circuit design, mechanical design and firmware for Oscilloscope module for modular instrumentation. This repo is heavily WIP.

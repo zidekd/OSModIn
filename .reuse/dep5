@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: OpenOscilloscopeModule
+Upstream-Contact: Daniel Židek <danielzidek@post.cz>
+Source: https://github.com/zidekd/OpenOscilloscopeModule
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...
