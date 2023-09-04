@@ -1,12 +1,20 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={150mm, 247mm},
+    left={30mm},
+    top={25mm}
+}
 \usepackage[english,czech]{babel}
 \usepackage{mathpazo}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{wrapfig}
 \usepackage[
 backend=bibtex,
 style=iso-numeric,
@@ -34,7 +42,8 @@ sorting=ynt
 
 \begin{document}
 
-\input{acronyms.tex}
+\input{acronyms}
+\input{glossaries}
 
 \input{titlePage}
 
@@ -115,7 +124,12 @@ návrhy jednotlivých bloků, na základě čehož budu stavit vlastní návrh.
 \subsection{Analogové osciloskopy}
 
 Základní princip funkce spočívá ve vychylování elektronového paprsku měřeným
-signálem a signálem \acrfullpl{casz}.
+signálem a signálem \acrfullpl{casz}. Vychýlený elektronový paprsek následně
+dopadá na speciální stínítko, které se v místě dopadu rozsvěcí. Analogové
+osciloskopy se již nepoužívají, ačkoliv pozor, ne každý osciloskop s CRT obrazovkou
+je analogový osciloskop. Pokud dnes osciloskop s CRT obrazovkou potkáte,
+s největší pravděpodobnopstí jde o analogový paměťový osciloskop, nebo zkrátka
+o \acrfull{dso}. Rozdíly mezi nimi rozeberu později.
 
 \begin{figure}[h]
 \centering
@@ -124,25 +138,50 @@ signálem a signálem \acrfullpl{casz}.
 \label{fig:blok-analog-osci}
 \end{figure}
 
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\includegraphics[width=0.5\textwidth]{osci-pasive-probe}
+\caption{Pasivní sonda (převzato z \cite{DeutschStandardTastkopfFur2020})}
+\label{fig:osci-pasive-probe}
+\end{wrapfigure}
+
 Na obrázku \ref{fig:blok-analog-osci} jako první vidíme blok "probe", tedy osciloskopickou
 sondu. Ta slouží k samotnému měření. Obvykle říkáme pouze "sonda", z kontextu je
 totiž jasné, o co jde. Nejčastěji se setkáme s pasivními sondami,
-(na obr. \ref{fig:osci-pasive-probe}) to jsou sondy
-ideální na takové běžné měření do 500 MHz a pravděpodobně to jsou i sondy,
-co přišly s vašim osciloskopem. Dále máme atenuátory, což je část obvodu odpovědná
-za snížení amplitudy vstupního signálu. Je-li vstupní signál příliš velký, můžeme využít
-právě atenuátoru pro snížení amplitudy bez změny frekvence, či jiného zásahu do samotného
-tvaru signálu. Atenuátor se obvykle vyskytuje jen po pár krocích, obvykle 1:4, 1:10 a 1:20.
+(na obr. \ref{fig:osci-pasive-probe}) to jsou sondy ideální na takové běžné měření
+do 500 MHz a pravděpodobně to jsou i sondy, co přišly s vašim osciloskopem.
+Dále máme atenuátory, což je část obvodu odpovědná za snížení amplitudy vstupního signálu.
+Je-li vstupní signál příliš velký, můžeme využít právě atenuátoru pro snížení
+amplitudy bez změny frekvence, či jiného zásahu do samotného tvaru signálu.
+Atenuátor se obvykle vyskytuje jen po pár krocích, obvykle 1:4, 1:10 a 1:20.
 V tomto blokovém schématu je spolu s atenuátorem spojen ještě zesilovač vertikální osy.
 Ten se zase stará o spojitou regulaci signálu, abychom například využili celou výšku
-zobrazovadla a to i signálem s nízkou amplitudou. Ze zesilovače signál jde dále do spouštěcího
-systému 
+zobrazovadla a to i signálem s nízkou amplitudou. Ze zesilovače signál
+jde dále do \gls{trigger}u. Jeden z nejčastějčích obvodů pro spouštěcí systém je Schmittův
+klopný obvod. Ten slouží ke spuštění tzv. sweep generátoru, tedy generátoru \acrfullpl{casz}.
+Stejně jako u vstupního signálu i signál \acrshort{casz} pokračuje do zesilovače a z něj na
+vychylovací destičky pro horizontální osu.
+
+\subsubsection{Schmittův klopný obvod} \label{sec:schmitt-ko}
+
+%TODO: Přesunout do samostatné sekce triggerů, spolu s dalšími obvody
+
+Schmittův klopný obvod je speciální komparátor, který má hysterezi. To znamená, že jeho
+výstup je závislý nejen na hodnotě vstupu, ale i na jeho původním stavu. Podobně jako
+obyčejný komparátor s operačním zesilovačem, i Schmittův klopný obvod dosahuje na výstupu
+kladného nebo záporného saturačního napětí.
+
+Pokud je na výstupu například kladné napětí, nedojde k překlopení Schmittova obvodu
+při pouhém splnění podmínky U+ < U- jako u komparátoru, ale teprve až rozdíl obou napětí
+dosáhne prahové hodnoty H- . Podobně, pokud je nyní na výstupu záporné saturační napětí,
+může dojít ke zpětnému překlopení Schmittova obvodu teprve až v momentě, kdy je U+ > U- o
+více než H+. (Celá část \ref{sec:schmitt-ko} je převzata z \cite{ELUCNapetovyKomparator})
 
 \begin{figure}[h]
-\centering
-\includegraphics[scale=0.3]{osci-pasive-probe}
-\caption{Příklad pasivní sondy (převzato z \cite{DeutschStandardTastkopfFur2020})}
-\label{fig:osci-pasive-probe}
+    \centering
+    \includegraphics[width=0.5\textwidth]{schmitt-ko}
+    \caption{Schmittův \acrshort{ko} pomocí \acrshort{nk}}
+    \label{fig:schmitt-ko}
 \end{figure}
 
 \newpage
@@ -155,5 +194,7 @@ title={Seznam použité literatury}
 \newpage
 
 \printglossary[type=\acronymtype, title=Abecední seznam zkratek, toctitle=Abecední seznam zkratek]
+
+\printglossary[title=Slovník pojmů, toctitle=Slovník pojmů]
 
 \end{document}
