@@ -1,0 +1,159 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[english,czech]{babel}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[
+backend=bibtex,
+style=iso-numeric,
+currentlang=true,
+sorting=ynt
+]{biblatex} %Imports biblatex package
+\addbibresource{citations.bib} %Import the bibliography file
+\usepackage[automake, acronym, toc]{glossaries}
+\graphicspath{ {./attachments} }
+
+\makeatletter
+\renewcommand{\fnum@figure}{Obr.: \thefigure}
+\makeatother
+
+\makeglossaries
+
+\renewcommand{\contentsname}{Obsah}
+\renewcommand{\listfigurename}{Seznam obrázků}
+\renewcommand{\listtablename}{Seznam tabulek}
+\renewcommand{\refname}{Zdroje}
+
+\title{OpenOscilloscopeModule}
+\author{Daniel Židek}
+\date{Září 2023}
+
+\begin{document}
+
+\input{acronyms.tex}
+
+\input{titlePage}
+
+\setcounter{page}{2}
+
+\tableofcontents
+
+\newpage
+
+\addcontentsline{toc}{section}{Seznam obrázků}
+\renewcommand{\listfigurename}{Seznam obrázků}
+\listoffigures
+
+\newpage
+
+\addcontentsline{toc}{section}{Seznam tabulek}
+\renewcommand{\listtablename}{Seznam tabulek}
+\listoftables
+
+\newpage
+
+\section{Abstrakt}
+
+Tato práce se zabývá návrhem a realizací osciloskopu pod otevřenou licencí CERN-OHL-S v2.
+Výsledkem by měl být osciloskop v Eurocard formátu, s šířkou pásma alespoň 60MHz, 
+2 kanály a cenou do 12 tisíc CZK. Tato práce dokumentuje proces vývoje,
+rozhodnutí a další poznámky týkající se ModIns Osciloskopu. Kromě toho zde
+dokumentuji i proces seznamování se se zpracováním rychlých analogových
+signálů a práce s FPGA - celý projekt vzniká jako záminka naučit se něco nového.
+Celý projekt je hostovaný na GitHubu v repozitáři
+\href{https://github.com/zidekd/OpenOscilloscopeModule}{zidekd/OpenOscilloscopeModule}.
+
+\newpage
+
+\section{Úvod}
+
+Celý projekt začínám pro to, abych si zkusil něco nového.
+Selhal a zkusil to znovu. Ve výsledku bych rád disponoval šasím
+podobným PXI od National Instruments a několika moduly pro něj.
+Jmenovitě je zatím plánovaný osciloskop a laboratorní zdroj.
+Všechny přístroje budou disponovat univerzálním protokolem pro
+komunikaci (kód tak bude moct být znovupoužitelný), komunikačními
+linkami a především obslužným software pro MS Windows (XP a 10),
+GNU+Linux a MacOS. Řídící jednotka bude moct sloužit také jako server,
+který by dovoloval obsluhu přístrojů nejen lokálně, přes USB, WiFi či LAN
+ale i sdílet přístroje reverzním tunelem. Zde bude otázka zabezpečení,
+nicméně takový software by měl dovolovat přístup více uživatelů s
+různými oprávněními (číst data z přístrojů, měnit jejich nastavení, ...).
+To by mohlo být příhodné ve výuce, či na pracovištích s možností vzdálené práce.
+
+Formát Eurocard jsem vybral pro to, protože mi přijde nejvhodnější.
+Je tedy ještě potřeba domyslet použití konektorů a komunikačních protokolů,
+ale o tom potom. :) Eurocard standard dovoluje použití modulů, jež jsou
+ukládány do šasí které lze následně připevnit do 19 palcového racku. Velikost
+racku jsou obvykle násobky tří, tedy 3U, 6U, atd.
+
+Co se obslužného software týče tak by moduly měly podporovat ovládání
+skrz Python API, vizuální grafické rozhraní připomínající ovládáním běžných
+laboratorních přístrojů a také by měly moct být ovládány skrze vizuální editor 
+zlú (podobný Node-RED, LabVIEW...). Ovládání skrze Python API, GUI i Node-based editor
+bude možné jak lokálně přes USB, WiFi a LAN tak i přes reverzní tunel, kdy potom
+lze ovládat přístroje i na druhém konci světa. Ačkoliv jde o sdílení "pouze" připojených
+přístrojů, všechny aplikace schopné s takovým spojením interagovat budou podporovat
+správu oprávnění a logů. Řídící jednotka bude zaznamenávat všechny akce, dle úrovní,
+takže v závislosti na nastavení se budou ukládat různě závažné záznamy. Co do správy
+oprávnění tak k dispozici bude několik úrovní přístupů a ty půjde omezit jak na
+jednotlivé přístroje, tak na celé sestavy.
+
+\newpage
+
+\section{Teoretický úvod}
+
+V následující kapitole rozeberu funkci analogových a digitálních osciloskopů, pokusím
+se provést rozbor komerčních osciloskopů (alespoň dle reverzních schémat; u 
+otevřených designů je tohle však mnohem jednodušší :D) a také porovnám
+návrhy jednotlivých bloků, na základě čehož budu stavit vlastní návrh.
+
+\subsection{Analogové osciloskopy}
+
+Základní princip funkce spočívá ve vychylování elektronového paprsku měřeným
+signálem a signálem \acrfullpl{casz}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{analog-oscilloscope-diagram}
+\caption{Blokový diagram analogového osciloskopu (převzato z \cite{HowDoesOscilloscope})}
+\label{fig:blok-analog-osci}
+\end{figure}
+
+Na obrázku \ref{fig:blok-analog-osci} jako první vidíme blok "probe", tedy osciloskopickou
+sondu. Ta slouží k samotnému měření. Obvykle říkáme pouze "sonda", z kontextu je
+totiž jasné, o co jde. Nejčastěji se setkáme s pasivními sondami,
+(na obr. \ref{fig:osci-pasive-probe}) to jsou sondy
+ideální na takové běžné měření do 500 MHz a pravděpodobně to jsou i sondy,
+co přišly s vašim osciloskopem. Dále máme atenuátory, což je část obvodu odpovědná
+za snížení amplitudy vstupního signálu. Je-li vstupní signál příliš velký, můžeme využít
+právě atenuátoru pro snížení amplitudy bez změny frekvence, či jiného zásahu do samotného
+tvaru signálu. Atenuátor se obvykle vyskytuje jen po pár krocích, obvykle 1:4, 1:10 a 1:20.
+V tomto blokovém schématu je spolu s atenuátorem spojen ještě zesilovač vertikální osy.
+Ten se zase stará o spojitou regulaci signálu, abychom například využili celou výšku
+zobrazovadla a to i signálem s nízkou amplitudou. Ze zesilovače signál jde dále do spouštěcího
+systému 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{osci-pasive-probe}
+\caption{Příklad pasivní sondy (převzato z \cite{DeutschStandardTastkopfFur2020})}
+\label{fig:osci-pasive-probe}
+\end{figure}
+
+\newpage
+
+\printbibliography[
+heading=bibintoc,
+title={Seznam použité literatury}
+]
+
+\newpage
+
+\printglossary[type=\acronymtype, title=Abecední seznam zkratek, toctitle=Abecední seznam zkratek]
+
+\end{document}

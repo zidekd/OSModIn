@@ -31,3 +31,25 @@ fp-info-cache
 # Exported BOM files
 *.xml
 *.csv
+
+# LaTeX
+
+Docs/Developer\ notes/*.log
+Docs/Developer\ notes/*-blx.bib
+Docs/Developer\ notes/*.acn
+Docs/Developer\ notes/*.aux
+Docs/Developer\ notes/*.bbl
+Docs/Developer\ notes/*.bcf
+Docs/Developer\ notes/*.blg
+Docs/Developer\ notes/*.glo
+Docs/Developer\ notes/*.ist
+Docs/Developer\ notes/*.lof
+Docs/Developer\ notes/*.lot
+Docs/Developer\ notes/*.out
+Docs/Developer\ notes/*.run.xml
+Docs/Developer\ notes/*.synctex.gz
+Docs/Developer\ notes/*.toc
+Docs/Developer\ notes/*.acr
+Docs/Developer\ notes/*.alg
+Docs/Developer\ notes/*.glg
+Docs/Developer\ notes/*.gls
