@@ -73,7 +73,7 @@ Výsledkem by měl být osciloskop v Eurocard formátu, s šířkou pásma alesp
 rozhodnutí a další poznámky týkající se ModIns Osciloskopu. Kromě toho zde
 dokumentuji i proces seznamování se se zpracováním rychlých analogových
 signálů a práce s FPGA - celý projekt vzniká jako záminka naučit se něco nového.
-Celý projekt je hostovaný na GitHubu v repozitáři
+Celý projekt je dostupný na GitHubu:
 \href{https://github.com/zidekd/OpenOscilloscopeModule}{zidekd/OpenOscilloscopeModule}.
 
 \newpage
@@ -121,7 +121,7 @@ se provést rozbor komerčních osciloskopů (alespoň dle reverzních schémat;
 otevřených designů je tohle však mnohem jednodušší :D) a také porovnám
 návrhy jednotlivých bloků, na základě čehož budu stavit vlastní návrh.
 
-\subsection{Analogové osciloskopy}
+\subsection{Analogové osciloskopy} \label{sec:analog-osci}
 
 Základní princip funkce spočívá ve vychylování elektronového paprsku měřeným
 signálem a signálem \acrfullpl{casz}. Vychýlený elektronový paprsek následně
@@ -162,27 +162,90 @@ klopný obvod. Ten slouží ke spuštění tzv. sweep generátoru, tedy generát
 Stejně jako u vstupního signálu i signál \acrshort{casz} pokračuje do zesilovače a z něj na
 vychylovací destičky pro horizontální osu.
 
-\subsubsection{Schmittův klopný obvod} \label{sec:schmitt-ko}
+Analogové osciloskopy mají zásadní nevýhodu
+a to tu, že měřený průběh nelze zastavit, zpomalit nebo jinak upravovat. Ačkoliv ho lze
+zaznamenat například fotoaparátem či kamerou (a ano, tohle byl skutečně způsob jakým se
+dlouho průběhy zaznamenávaly) tak jeho analýza je poměrně obtížná a často nepřesná.
+Navíc zobrazit pouze periodické průběhy, takže se s nimi nepodíváme třeba ani na
+\gls{i2c} komunikační sběrnice, jako jeden z mnoha příkladů s čimž se můžeme v elektrotechnické
+laboratoři setkat. Proto se začaly využívat \acrlongpl{dso}.
 
-%TODO: Přesunout do samostatné sekce triggerů, spolu s dalšími obvody
+\subsection{\Acrfull{dso}}
 
-Schmittův klopný obvod je speciální komparátor, který má hysterezi. To znamená, že jeho
-výstup je závislý nejen na hodnotě vstupu, ale i na jeho původním stavu. Podobně jako
-obyčejný komparátor s operačním zesilovačem, i Schmittův klopný obvod dosahuje na výstupu
-kladného nebo záporného saturačního napětí.
-
-Pokud je na výstupu například kladné napětí, nedojde k překlopení Schmittova obvodu
-při pouhém splnění podmínky U+ < U- jako u komparátoru, ale teprve až rozdíl obou napětí
-dosáhne prahové hodnoty H- . Podobně, pokud je nyní na výstupu záporné saturační napětí,
-může dojít ke zpětnému překlopení Schmittova obvodu teprve až v momentě, kdy je U+ > U- o
-více než H+. (Celá část \ref{sec:schmitt-ko} je převzata z \cite{ELUCNapetovyKomparator})
+Právě \acrlongpl{dso} řeší tyto nedostatky analogových osciloskopů. Jejich základní princip
+funkce zůstává totožný tomu u analogových osciloskopů, hlavní rozdíl všask spočívá ve zobrazování
+a vzorkování. Zatím co analogový osciloskop využívá měřeného signálu pro zobrazení průběhu
+vychylováním elektronového paprsku, digitální osciloskopy využívají \acrfull{adc} a
+číslicové techniky pro zpracování a zobrazení měřeného průběhu. Takto zachycený signál
+lze snáze uložit, analyzovat a jeho hlavní limitací je paměť osciloskopu a vzorkovací frekvence
+\acrshort{adc}. Sondu, atenuátor, zesilovač a trigger v téhle části vynechám a odkážu se na
+kapitolu analogových osciloskopů - \ref{sec:analog-osci}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{schmitt-ko}
-    \caption{Schmittův \acrshort{ko} pomocí \acrshort{nk}}
-    \label{fig:schmitt-ko}
+    \includegraphics[width=\textwidth]{digital-oscilloscope-diagram}
+    \caption{Blokový diagram digitálního osciloskopu (převzato z \cite{SampleProcessingDigital})}
+    \label{fig:blok-digital-osci}
 \end{figure}
+
+Poté co je signál utlumen
+a zase zesílen na požadovanou úroveň, pokračuje do \acrshort{adc}, kde se navzorkuje.
+Hlavním parametrem \acrshort{adc} je vzorkovací frekvence, kvantizační úrovně a kvantizační
+šum. Vzorkovací frekvence \textbf{musí} být alespoň dvakrát větší jak frekvence měřeného
+průběhu. Jde o Nyquistovu frekvenci, pokud ji dosáhneme, dochází k úplnému a nevratnému
+zkreslení signálu \cite{AliasingADCsNot2015}. $$f_{max}=\frac{f_s}{2}$$ V praxi však vzorkovací
+frekvence \acrshort{adc} bývá pěti až deseti násobek šířky pásma. Kvantizační úroveň je údaj
+o tom jaký nejmenší napěťový díl jsme schopni zachytit. Například 8-bit \acrshort{adc} je
+schopné popsat vstupní napětí až 256 hodnotami. Například \acrshort{adc} s full scale rozsahem
+0 až 24V a 8 bity kvantizační úrovně má rozlišení 93,75mV.
+$$U_{res}=\frac{U_{FS}}{2^n}=\frac{24}{2^8}=0.09375$$ Kvantizační šum je šum zanášený
+samotným \acrshort{adc}. Po převedení na digitální signál je tato informace zpracována
+procesorovou jednotkou (MCU, CPU, FPGA...), uložena do paměti RAM a poté už je jen vykonstruován
+obraz a jeho zobrazení na displeji.
+
+\subsection{Analogový front-end osciloskopu}
+
+Zde rozeberu návrh obvodu atenuátoru, zesilovače, \acrshort{adc}, triggeru a dalších obvodů
+potřebných pro zpracování rychlých analogových signálů. Pokusím se najít ukázky těchto obvodů
+v již existujících osciloskopech, provést jejich simulaci, porovnat je a na základě toho
+provést návrh vlastních. Cílem by měly být informované rozhodnutí při návrhu vlastního osciloskopu.
+
+\subsubsection{BNC a vstupní impedance, AC/DC/GND coupling}
+
+Použití standardního BNC konektoru je jasný. Za ním však dochází ještě k výběru mezi 50 ohm a 1 Mohm
+vstupní impedancí. Zde je důležité použít kvalitní relé, či přepínač. Co se couplingu týče,
+DC volba je přímé propojení vstupního signálu na front-end. Pro AC coupling připojíme paralelně cca
+1nF kondenzátor a pro GND coupling spojíme analogové obvody se zemí.
+
+\subsubsection{Atenuátor}
+
+\subsubsection{Zesilovače}
+
+\subsubsection{\acrlong{adc}}
+
+
+
+% \subsubsection{Schmittův klopný obvod} \label{sec:schmitt-ko}
+
+% % TODO: Přesunout do samostatné sekce triggerů, spolu s dalšími obvody
+
+% Schmittův klopný obvod je speciální komparátor, který má hysterezi. To znamená, že jeho
+% výstup je závislý nejen na hodnotě vstupu, ale i na jeho původním stavu. Podobně jako
+% obyčejný komparátor s operačním zesilovačem, i Schmittův klopný obvod dosahuje na výstupu
+% kladného nebo záporného saturačního napětí.
+
+% Pokud je na výstupu například kladné napětí, nedojde k překlopení Schmittova obvodu
+% při pouhém splnění podmínky U+ < U- jako u komparátoru, ale teprve až rozdíl obou napětí
+% dosáhne prahové hodnoty H- . Podobně, pokud je nyní na výstupu záporné saturační napětí,
+% může dojít ke zpětnému překlopení Schmittova obvodu teprve až v momentě, kdy je U+ > U- o
+% více než H+. (Celá část \ref{sec:schmitt-ko} je převzata z \cite{ELUCNapetovyKomparator})
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{schmitt-ko}
+%     \caption{Schmittův \acrshort{ko} pomocí \acrshort{nk}}
+%     \label{fig:schmitt-ko}
+% \end{figure}
 
 \newpage
 
@@ -193,7 +256,7 @@ title={Seznam použité literatury}
 
 \newpage
 
-\printglossary[type=\acronymtype, title=Abecední seznam zkratek, toctitle=Abecední seznam zkratek]
+\printglossary[type=\acronymtype, title=Seznam zkratek, toctitle=Seznam zkratek]
 
 \printglossary[title=Slovník pojmů, toctitle=Slovník pojmů]
 

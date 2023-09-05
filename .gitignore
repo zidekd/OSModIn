@@ -32,6 +32,8 @@ fp-info-cache
 *.xml
 *.csv
 
+.vscode/*
+
 # LaTeX
 
 Docs/Developer\ notes/*.log
@@ -53,4 +55,4 @@ Docs/Developer\ notes/*.acr
 Docs/Developer\ notes/*.alg
 Docs/Developer\ notes/*.glg
 Docs/Developer\ notes/*.gls
-Docs/Developer\ notes/*..glsdefs
+Docs/Developer\ notes/*.glsdefs
