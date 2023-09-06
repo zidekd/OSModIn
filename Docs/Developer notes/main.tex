@@ -16,10 +16,10 @@
 \usepackage{hyperref}
 \usepackage{wrapfig}
 \usepackage[
-backend=bibtex,
-style=iso-numeric,
-currentlang=true,
-sorting=ynt
+    backend=bibtex,
+    style=iso-numeric,
+    currentlang=true,
+    sorting=ynt
 ]{biblatex} %Imports biblatex package
 \addbibresource{citations.bib} %Import the bibliography file
 \usepackage[automake, acronym, toc]{glossaries}
@@ -132,17 +132,17 @@ s největší pravděpodobnopstí jde o analogový paměťový osciloskop, nebo 
 o \acrfull{dso}. Rozdíly mezi nimi rozeberu později.
 
 \begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth]{analog-oscilloscope-diagram}
-\caption{Blokový diagram analogového osciloskopu (převzato z \cite{HowDoesOscilloscope})}
-\label{fig:blok-analog-osci}
+    \centering
+    \includegraphics[width=\textwidth]{analog-oscilloscope-diagram}
+    \caption{Blokový diagram analogového osciloskopu (převzato z \cite{HowDoesOscilloscope})}
+    \label{fig:blok-analog-osci}
 \end{figure}
 
 \begin{wrapfigure}{r}{0.5\textwidth}
-\centering
-\includegraphics[width=0.5\textwidth]{osci-pasive-probe}
-\caption{Pasivní sonda (převzato z \cite{DeutschStandardTastkopfFur2020})}
-\label{fig:osci-pasive-probe}
+    \centering
+    \includegraphics[width=0.5\textwidth]{osci-pasive-probe}
+    \caption{Pasivní sonda (převzato z \cite{DeutschStandardTastkopfFur2020})}
+    \label{fig:osci-pasive-probe}
 \end{wrapfigure}
 
 Na obrázku \ref{fig:blok-analog-osci} jako první vidíme blok "probe", tedy osciloskopickou
@@ -215,9 +215,24 @@ provést návrh vlastních. Cílem by měly být informované rozhodnutí při n
 Použití standardního BNC konektoru je jasný. Za ním však dochází ještě k výběru mezi 50 ohm a 1 Mohm
 vstupní impedancí. Zde je důležité použít kvalitní relé, či přepínač. Co se couplingu týče,
 DC volba je přímé propojení vstupního signálu na front-end. Pro AC coupling připojíme paralelně cca
-1nF kondenzátor a pro GND coupling spojíme analogové obvody se zemí.
+100nF kondenzátor a pro GND coupling spojíme analogové obvody se zemí.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{input-example.pdf}
+    \caption{Příklad realizace vstupu osciloskopu}
+    \label{fig:input-example}
+\end{figure}
+
+Je důležité upozornit že AC coupling nelze použít všude! AC coupling je vhodný pro velké DC offsety,
+například když se chceme podívat na zákmity (běžně mohou mít do 100mV) na +12V větvi zdroje.
+Se signály jako je ten obdélníkový nám může použitý kondenzátor zkreslit signál a my si toho
+nemusíme ani všimnout. Pro menší DC offsety je tak vhodné použít jiných metod odečítání DC
+složky průběhu.
 
 \subsubsection{Atenuátor}
+
+Zde amplitudu vhodně podělíme, to proto abychom mohli měřit signály i mimo rozsah \acrshort{adc}.
 
 \subsubsection{Zesilovače}
 
