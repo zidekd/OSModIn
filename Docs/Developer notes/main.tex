@@ -212,14 +212,15 @@ provést návrh vlastních. Cílem by měly být informované rozhodnutí při n
 
 \subsubsection{BNC a vstupní impedance, AC/DC/GND coupling}
 
-Použití standardního BNC konektoru je jasný. Za ním však dochází ještě k výběru mezi 50 ohm a 1 Mohm
-vstupní impedancí. Zde je důležité použít kvalitní relé, či přepínač. Co se couplingu týče,
+Použití standardního BNC konektoru je jasný. Za ním však dochází ještě k výběru mezi 50 $\Omega$ a 1 M$\Omega$
+vstupní impedancí. \emph{(Pravděpodobně bude v tomto návrhu vynecháno.)} Zde je důležité použít
+kvalitní relé, či přepínač. Co se couplingu týče,
 DC volba je přímé propojení vstupního signálu na front-end. Pro AC coupling připojíme paralelně cca
 100nF kondenzátor a pro GND coupling spojíme analogové obvody se zemí.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{input-example.pdf}
+    \includegraphics[width=0.5\textwidth, page=2]{kicad-export}
     \caption{Příklad realizace vstupu osciloskopu}
     \label{fig:input-example}
 \end{figure}
@@ -233,16 +234,37 @@ složky průběhu.
 \subsubsection{Atenuátor}
 
 Zde amplitudu vhodně podělíme, to proto abychom mohli měřit signály i mimo rozsah \acrshort{adc}.
+Ve své podstatě jde pouze o napěťový dělič. V ideálním prostředí bez parazitních parametrů by
+stačilo použít pouze rezistory jakožto napěťový dělič, nicméně protože naše cestičky a prvky
+mají i parazitní kapacitu, musíme pro ni kompenzovat. Kompenzovat pro ni musíme, protože bez ní
+by se lišil poměr děliče kapacitního potenciálu a děliče potenciálu tvořeného rezistory.
+\cite{AnswerCompensatedAttenuator2016}
+
+Rezisotry R301, R302 a R303 tvoří standardí napěťový dělič se sériovým odporem 1M$\Omega$. Kondenzátor C304
+znázorňuje parazitní kapacitu v obvodu a kondenzátory C301, C302 a C303 slouží právě pro kompenzaci děliče.
+Při realizaci je vhodné tyto kondenzátory nahradit (či doplnit) variabilními kapacitními trimry pro
+přesné doladění po sestavení. Kompenzace se provadí přivedením obvykle 10kHZ obdélníkového signálu
+na vstup a následné nastavení trimerů pro co nejlepší hranu obdélníku. Kompenzovat se musí každý ze
+stavů zvlášť, tedy volba 1:1, 1:10 i 1:100.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth, page=3]{kicad-export}
+    \caption{Příklad realizace atenuátoru osciloskopu}
+    \label{fig:attenuator-example}
+\end{figure}
+
+TODO: Doplnit výstupy simulace
 
 \subsubsection{Zesilovače}
 
-\subsubsection{\acrlong{adc}}
+\subsubsection{\Acrlong{adc}}
 
 
 
 % \subsubsection{Schmittův klopný obvod} \label{sec:schmitt-ko}
 
-% % TODO: Přesunout do samostatné sekce triggerů, spolu s dalšími obvody
+% TODO: Přesunout do samostatné sekce triggerů, spolu s dalšími obvody
 
 % Schmittův klopný obvod je speciální komparátor, který má hysterezi. To znamená, že jeho
 % výstup je závislý nejen na hodnotě vstupu, ale i na jeho původním stavu. Podobně jako

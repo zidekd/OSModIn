@@ -8,14 +8,31 @@
   )
 
 
-  (sheet (at 19.05 21.59) (size 36.83 22.86) (fields_autoplaced)
+  (sheet (at 20.32 68.58) (size 36.83 22.86) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 328369cc-943c-47ea-a4b7-34fe34797705)
+    (property "Sheetname" "Attenuator" (at 20.32 67.8684 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "attenuator.kicad_sch" (at 20.32 92.0246 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "KiCad-DoscSource"
+        (path "/1d440e8f-b221-47d3-bac2-5e91222a75a8" (page "3"))
+      )
+    )
+  )
+
+  (sheet (at 20.32 20.32) (size 35.56 22.86) (fields_autoplaced)
     (stroke (width 0.1524) (type solid))
     (fill (color 0 0 0 0.0000))
     (uuid e6ea977f-63d3-4e66-b5a3-7108384f1d4c)
-    (property "Sheetname" "Input & Coupling" (at 19.05 20.8784 0)
+    (property "Sheetname" "Input & Coupling" (at 20.32 19.6084 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Sheetfile" "input-coupling.kicad_sch" (at 19.05 45.0346 0)
+    (property "Sheetfile" "input-coupling.kicad_sch" (at 20.32 43.7646 0)
       (effects (font (size 1.27 1.27)) (justify left top))
     )
     (instances
