@@ -4,29 +4,45 @@ SPDX-FileCopyrightText: 2023 Daniel Židek <danielzidek@post.cz>
 SPDX-License-Identifier: GPL-3.0-or-later
 -->
 
-# OpenOscilloscopeModule
+# OSModIn
 
-This repository contains circuit designs, mechanical designs, and firmware for an Oscilloscope module designed for modular instrumentation. The oscilloscope is intended to be in Eurocard format, similar to the National Instruments PXI system. Numerous decisions will need to be made regarding connectors, protocols, and other components, including chassis design. Therefore, the choice of the Eurocard IEEE standard format has been made. Please note that this repository is currently a work in progress (WIP).
+Osmodin je modulární systém přístrojů a prvků sloužících pro měření, sběr dat a automatizaci experimentů. Celý systém je zamýšlen s možností uložit celý rack do standarních serverových skříň, přičemž ale stále dovolit provoz v kompaktnějších šasí, podobně jako je tomu u PXI systému od National Instruments. Tenhle repozitář obsahuje schématický návrh, návrh mechanické konstrukce a výrobní podklady pro DPS spolu s firmware a software pro moduly a pro rack samotný. **Tento repozitář je stále WIP.**
 
-Target specs:
-- Bandwidth: 60MHz
-- Channels: 2
-- Resolution: 8-bit
-- Price: under 500€
+**Cíle projektu**
+- Šasí pro 4-8 modulů
+- Řídící modul
+    - Založen na RPi 3b+ (či vyšším), nebo na nějakém dostupném mini PC
+    - Předpoklad je 500 Mbps až 1 Gbps sběrnice pro moduly
+    - Slouží jako brána pro moduly, možné použít jako server a pomocí bezpečného tunelu se k němu připojovat téměř odkudkoliv
+    - Cena do 6 000 Kč
+- Modul osciloskopu
+    - Šířka pásma alespoň 50 MHz
+    - Alespoň dva kanály
+    - 8 bitů rozlišení analogově digitálního převodníku
+    - Cena do 15 000 Kč
+- Modul multimetru
+- Modul laboratorního zdroje
 
-## Directory organization
+## Organizace projektu
 
-**Docs** - contains documentation, including developer notes, test protocols and content for wiki.  
-**Firmware** - contains code that runs right on module  
-**Hardware** - contains curcuit board designs, including schematics and PCB layout
+**Docs** - zde najdeš dokumentaci k projektu, zahrnujíc poznámky z vývoje, protokoly měření a testování a další relevantní informace
+**Software** - tady najdeš kód pro obslužný software, co poběží u tebe na serveru, pracovní stanici, nebo i počítači
+**Modules** - v tomto adresáři jsou schémata, výkresy ale i firmware pro jednotlivé moduly
+    **Oscilloscope**
+        **Hardware** - Schématický návrh modulu, návrh DPS a návrh mechanických částí modulu
+        **Firmware** - Kód běžící přímo na modulu
+**Rack** - mechanický a schématický návrh racku pro moduly
 
-## Documenting changes
+## Documentování změn
+
+V tomto repozitáři je CHANGES.md soubor do kterého se zapisují veškeré změny. Při podávání pull requestu prosím zanes své změny i do
+tohoto souboru. Změny se přidávají ve formátu **datum rozsah - krátký popis změn**.
 
 This repository includes a CHANGES.md file. We will document all design changes in this file. If you submit a pull request that makes changes to the circuit designs, please update CHANGES.txt with a brief description of your changes.
 
 ## License
 
-This project is REUSE compliant.
+Tento projekt je v souladu s REUSE standardem.
 
 The project contains documentation, hardware source, firmware and software source. The documentation under Docs directory is licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode). Source under Hardware directory describes Open Hardware and is licensed under the [CERN-OHL-S v2](https://ohwr.org/cern_ohl_s_v2.txt). Firmware and software is licensed under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0-standalone.html).
 

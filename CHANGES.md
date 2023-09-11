@@ -12,8 +12,6 @@ As per section 3.3.b of LICENSE, information should be added but NEVER REMOVED f
 
 When adding information, please provide a brief entry with a date and the nature of the modification for each design change.
 
-## Docs
+**CHANGES:**
 
-## Firmware
-
-## Hardware
+11.9. celý projekt  - přejmenování repozitáře, přidání atenuátor do dokumentace, počátek HW návrhu
