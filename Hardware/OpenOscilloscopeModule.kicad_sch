@@ -1,0 +1,39 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid d7629618-a54c-47a4-8514-ae3302783bbe)
+
+  (paper "A4")
+
+  (title_block
+    (title "Analog front-end of oscilloscope")
+    (date "2023-09-10")
+    (rev "A")
+    (company "Daniel Židek")
+    (comment 1 "ModIns Osciloskop")
+  )
+
+  (lib_symbols
+  )
+
+
+  (sheet (at 17.78 22.86) (size 35.56 22.86) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 85edcf3c-5791-4917-ba83-0768c95ef6a1)
+    (property "Sheetname" "Analog front-end" (at 17.78 22.1484 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "analog-frontend.kicad_sch" (at 17.78 46.3046 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "OpenOscilloscopeModule"
+        (path "/d7629618-a54c-47a4-8514-ae3302783bbe" (page "2"))
+      )
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)

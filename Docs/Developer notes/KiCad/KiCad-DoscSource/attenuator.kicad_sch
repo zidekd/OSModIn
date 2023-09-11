@@ -421,7 +421,7 @@
     (property "Reference" "C303" (at 34.29 33.02 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "1250pF" (at 34.29 35.56 0)
+    (property "Value" "1350pF" (at 34.29 35.56 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "" (at 31.4452 38.1 0)

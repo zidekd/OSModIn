@@ -134,7 +134,7 @@ o \acrfull{dso}. Rozdíly mezi nimi rozeberu později.
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{analog-oscilloscope-diagram}
-    \caption{Blokový diagram analogového osciloskopu (převzato z \cite{HowDoesOscilloscope})}
+    \caption{Blokový diagram analogového osciloskopu (převzato z \cite{HowDoesOscilloscopea})}
     \label{fig:blok-analog-osci}
 \end{figure}
 
@@ -170,7 +170,7 @@ Navíc zobrazit pouze periodické průběhy, takže se s nimi nepodíváme třeb
 \gls{i2c} komunikační sběrnice, jako jeden z mnoha příkladů s čimž se můžeme v elektrotechnické
 laboratoři setkat. Proto se začaly využívat \acrlongpl{dso}.
 
-\subsection{\Acrfull{dso}}
+\subsection{Digitálně paměťový osciloskop}
 
 Právě \acrlongpl{dso} řeší tyto nedostatky analogových osciloskopů. Jejich základní princip
 funkce zůstává totožný tomu u analogových osciloskopů, hlavní rozdíl všask spočívá ve zobrazování
@@ -198,7 +198,7 @@ frekvence \acrshort{adc} bývá pěti až deseti násobek šířky pásma. Kvant
 o tom jaký nejmenší napěťový díl jsme schopni zachytit. Například 8-bit \acrshort{adc} je
 schopné popsat vstupní napětí až 256 hodnotami. Například \acrshort{adc} s full scale rozsahem
 0 až 24V a 8 bity kvantizační úrovně má rozlišení 93,75mV.
-$$U_{res}=\frac{U_{FS}}{2^n}=\frac{24}{2^8}=0, 09375$$ Kvantizační šum je šum zanášený
+$$U_{res}=\frac{U_{FS}}{2^n}=\frac{24}{2^8}=0, 09375 [V]$$ Kvantizační šum je šum zanášený
 samotným \acrshort{adc}. Po převedení na digitální signál je tato informace zpracována
 procesorovou jednotkou (MCU, CPU, FPGA...), uložena do paměti RAM a poté už je jen vykonstruován
 obraz a jeho zobrazení na displeji.
@@ -258,7 +258,7 @@ TODO: Doplnit výstupy simulace
 
 \subsubsection{Zesilovače}
 
-\subsubsection{\Acrlong{adc}}
+\subsubsection{Analogově digitální převodník}
 
 
 

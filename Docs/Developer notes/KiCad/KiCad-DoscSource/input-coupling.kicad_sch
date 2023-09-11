@@ -312,10 +312,10 @@
     (property "Datasheet" "~" (at 48.895 5.715 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 942f32a1-78ff-4fd6-96bb-c1bac10dd614))
-    (pin "2" (uuid f66075d4-c268-4602-a159-201f0c9d780b))
-    (pin "3" (uuid 8937be7d-5a09-4a12-908b-0bce7de7e15b))
-    (pin "4" (uuid 04dc9101-ebbb-427e-aadb-5096e46d9835))
+    (pin "1" (uuid 03339334-49b2-407f-946e-e9c2802d7416))
+    (pin "2" (uuid 06d006c7-b12a-48f9-bde3-1f2f158b9495))
+    (pin "3" (uuid 63a23776-b4f0-4e9f-816c-abf5b5c83bd3))
+    (pin "4" (uuid 539c4954-4ea1-45d9-9c35-9f793a21ed15))
     (instances
       (project "KiCad-DoscSource"
         (path "/1d440e8f-b221-47d3-bac2-5e91222a75a8/e6ea977f-63d3-4e66-b5a3-7108384f1d4c"
@@ -343,7 +343,7 @@
     (property "Datasheet" "~" (at 5.08 17.78 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 2c4d9210-8fd7-4517-99a5-6e2e3f9a8856))
+    (pin "1" (uuid fe23ae81-088e-4fb6-be15-e50c30b5fd38))
     (instances
       (project "KiCad-DoscSource"
         (path "/1d440e8f-b221-47d3-bac2-5e91222a75a8/e6ea977f-63d3-4e66-b5a3-7108384f1d4c"
@@ -371,8 +371,8 @@
     (property "Datasheet" "~" (at 20.32 7.62 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 4cd8dd6f-3762-4ed5-9a05-9cafb95823b1))
-    (pin "2" (uuid e3524a13-a102-4c0e-a47e-d329664d9b09))
+    (pin "1" (uuid ebdd0375-ad79-4ade-abaf-0743df20eeac))
+    (pin "2" (uuid 5f44009f-28fc-4ad4-ba86-961afad36328))
     (instances
       (project "KiCad-DoscSource"
         (path "/1d440e8f-b221-47d3-bac2-5e91222a75a8/e6ea977f-63d3-4e66-b5a3-7108384f1d4c"
@@ -400,8 +400,8 @@
     (property "Datasheet" " ~" (at 5.08 10.16 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 778c37a0-db1d-48e4-842a-6cbd1a05657c))
-    (pin "2" (uuid ce1d795d-9086-47ad-b30a-ccd9bc83e25f))
+    (pin "1" (uuid eb202a02-cf77-4b53-96d3-6b99acecb372))
+    (pin "2" (uuid 3e21fc3d-c04c-4f98-9166-b578c7ef5364))
     (instances
       (project "KiCad-DoscSource"
         (path "/1d440e8f-b221-47d3-bac2-5e91222a75a8/e6ea977f-63d3-4e66-b5a3-7108384f1d4c"
@@ -429,7 +429,7 @@
     (property "Datasheet" "~" (at 25.4 15.24 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid cb724add-012c-4766-8935-8e3b71eb03c8))
+    (pin "1" (uuid 32059e16-ff14-46d5-be15-88f59d582cc1))
     (instances
       (project "KiCad-DoscSource"
         (path "/1d440e8f-b221-47d3-bac2-5e91222a75a8/e6ea977f-63d3-4e66-b5a3-7108384f1d4c"
