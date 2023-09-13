@@ -30,7 +30,7 @@
 \graphicspath{ {./attachments} }
 
 \makeatletter
-\renewcommand{\fnum@figure}{Obr.: \thefigure}
+\renewcommand{\fnum@figure}{Obr. \thefigure}
 \makeatother
 
 \makeglossaries
@@ -66,6 +66,30 @@
 \addcontentsline{toc}{section}{Seznam tabulek}
 \renewcommand{\listtablename}{Seznam tabulek}
 \listoftables
+
+\newpage
+
+\section{Časový plán}
+
+\subsection{Q3 2023}
+
+Ve třetím kvartálu by měl být hotový návrh analogového front-end osciloskopu.
+To zahrnuje hotový atenuátor, obvod zesilovače a analogově digitálního převodníku.
+
+\subsection{Q4 2023}
+
+V tomto kvartálu by měl být hotov obvod zpracování dat a vymyšlen protokol pro
+komunikaci modulů. Zároveň by už mělo být dokončováno šasí a další podpůrné části.
+
+\subsection{Q1 2024}
+
+V tomto kvartálu by měl být dokončen software a řídící modul.
+
+\subsection{Q2 2024}
+
+\subsection{Q3 2024}
+
+\subsection{Q4 2024}
 
 \newpage
 
@@ -262,9 +286,43 @@ TODO: Doplnit výstupy simulace
 
 \subsubsection{Zesilovače}
 
+\newpage
+
 \subsubsection{Analogově digitální převodník}
 
+Analogově digitální převodník slouží k vzorkování analogových signálů a
+následném převedení na digitální slova \emph{(slovem myšlen byte)}.
+Na obrázku \ref{fig:adc-sampling} lze vidět princip vzorkování. Zelená
+čára představuje měřený analogový signál, body na něm jsou naše vzorky a
+ty modré spojnice ředstavují čas mezi vzorkováním. Kvantizační úroveň je
+parametr který udává výšku "schodů" na grafu. Udáváme ji v bitech a standardní
+rozlišení je 8 bitů, tedy jde o 256 kvantizačních úrovní ($2^8$).
+Teď už daleko častěji potkáváme i osciloskopy s 12bitovými a 14 bitovými
+převodníky, často označované jako \uv{High Definition} nebo \uv{High Resolution}.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{adc-sampling}
+    \caption{Nákres funkce ADC při vzorkování (převzato z \cite{OscilloscopeBasicsPrimer})}
+    \label{fig:adc-sampling}
+\end{figure}
+
+Vzorkovací teorém (nyquist-shannonův teorém) říká, že vzorkovací frekvence
+musí být dvakrát tak vyšší, než je frekvence nejvyšší harmonické ve fourierovském
+spektru měřeného signálu. V praxi volíme ale frekvenci o něco vyšší, pro měření to
+bývá i 5 až 10 krát vyšší frekvence vzorkování. \cite{MereniKolemNas} Na obrázku \ref{fig:adc-aliasing}
+vidíme 1 GHz sinusový signál vzorkovaný 750 Msps. \uv{Alias} signálu, neboli
+jeho chybná rekonstrukce se na grafu prezentuje jako sinus o frekvenci 250 MHz,
+což je 4x menší než-li ta skutečná. Pro tyhle případy používáme před převodníkem
+filtr typu horní propust, lazený na mezní frekvenci našeho přístroje. Tím zamezíme
+takto výrazně chybným měřením a zabráníme tím špatné interpretaci signálu.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{adc-aliasing}
+    \caption{Nákres ADC vzorkování při nedodržení Nyquistovy věty (převzato z \cite{OscilloscopeBasicsPrimer})}
+    \label{fig:adc-aliasing}
+\end{figure}
 
 % \subsubsection{Schmittův klopný obvod} \label{sec:schmitt-ko}
 
