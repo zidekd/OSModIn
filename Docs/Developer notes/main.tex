@@ -79,7 +79,7 @@ To zahrnuje hotový atenuátor, obvod zesilovače a analogově digitálního př
 \subsection{Q4 2023}
 
 V tomto kvartálu by měl být hotov obvod zpracování dat a vymyšlen protokol pro
-komunikaci modulů. Zároveň by už mělo být dokončováno šasí a další podpůrné části.
+komunikaci modulů. Zároveň by už mělo být dokončeno šasí a další podpůrné části.
 
 \subsection{Q1 2024}
 
@@ -96,21 +96,21 @@ V tomto kvartálu by měl být dokončen software a řídící modul.
 \section{Abstrakt}
 
 Tato práce se zabývá návrhem a realizací osciloskopu pod otevřenou licencí CERN-OHL-S v2.
-Výsledkem by měl být osciloskop v Eurocard formátu, s šířkou pásma alespoň 60MHz, 
-2 kanály a cenou do 12 tisíc CZK. Tato práce dokumentuje proces vývoje,
-rozhodnutí a další poznámky týkající se ModIns Osciloskopu. Kromě toho zde
+Výsledkem by měl být osciloskop v Eurocard formátu, s šířkou pásma alespoň 50 MHz, 
+2 kanály a cenou do 15 tisíc CZK. Tato práce dokumentuje proces vývoje,
+rozhodnutí a další poznámky týkající se OSModIn Osciloskopu. Kromě toho zde
 dokumentuji i proces seznamování se se zpracováním rychlých analogových
 signálů a práce s FPGA - celý projekt vzniká jako záminka naučit se něco nového.
 Celý projekt je dostupný na GitHubu:
-\href{https://github.com/zidekd/OpenOscilloscopeModule}{zidekd/OpenOscilloscopeModule}.
+\href{https://github.com/zidekd/OSModIn}{zidekd/OSModIn}.
 
 \newpage
 
 \section{Úvod}
 
 Celý projekt začínám pro to, abych si zkusil něco nového.
-Selhal a zkusil to znovu. Ve výsledku bych rád disponoval šasím
-podobným PXI od National Instruments a několika moduly pro něj.
+Selhal a zkusil to znovu. Ve výsledku bych rád disponoval systémem
+podobným PXI od National Instruments s několika moduly.
 Jmenovitě je zatím plánovaný osciloskop a laboratorní zdroj.
 Všechny přístroje budou disponovat univerzálním protokolem pro
 komunikaci (kód tak bude moct být znovupoužitelný), komunikačními
@@ -127,11 +127,12 @@ Je tedy ještě potřeba domyslet použití konektorů a komunikačních protoko
 ale o tom potom. :) Eurocard standard dovoluje použití modulů, jež jsou
 ukládány do šasí které lze následně připevnit do 19 palcového racku. Velikost
 racku jsou obvykle násobky tří, tedy 3U, 6U, atd.
+\emph{(\uv{U} je standard výšky vybavení do racku. 1U je 1,75 palce, nebo 44,45 mm.)}
 
 Co se obslužného software týče tak by moduly měly podporovat ovládání
 skrz Python API, vizuální grafické rozhraní připomínající ovládáním běžných
 laboratorních přístrojů a také by měly moct být ovládány skrze vizuální editor 
-zlú (podobný Node-RED, LabVIEW...). Ovládání skrze Python API, GUI i Node-based editor
+uzlú (podobný Node-RED, LabVIEW...). Ovládání skrze Python API, GUI i Node-based editor
 bude možné jak lokálně přes USB, WiFi a LAN tak i přes reverzní tunel, kdy potom
 lze ovládat přístroje i na druhém konci světa. Ačkoliv jde o sdílení "pouze" připojených
 přístrojů, všechny aplikace schopné s takovým spojením interagovat budou podporovat
@@ -156,7 +157,7 @@ signálem a signálem \acrfullpl{casz}. Vychýlený elektronový paprsek násled
 dopadá na speciální stínítko, které se v místě dopadu rozsvěcí. Analogové
 osciloskopy se již nepoužívají, ačkoliv pozor, ne každý osciloskop s CRT obrazovkou
 je analogový osciloskop. Pokud dnes osciloskop s CRT obrazovkou potkáte,
-s největší pravděpodobnopstí jde o analogový paměťový osciloskop, nebo zkrátka
+s největší pravděpodobnopstí jde o analogový paměťový osciloskop, nebo
 o \acrfull{dso}. Rozdíly mezi nimi rozeberu později.
 
 \begin{figure}[h]
@@ -231,6 +232,10 @@ samotným \acrshort{adc}. Po převedení na digitální signál je tato informac
 procesorovou jednotkou (MCU, CPU, FPGA...), uložena do paměti RAM a poté už je jen vykonstruován
 obraz a jeho zobrazení na displeji.
 
+\subsection{Osciloskop s digitálním fosforem (DPO)}
+
+TODO: Dodělat
+
 \subsection{Analogový front-end osciloskopu}
 
 Zde rozeberu návrh obvodu atenuátoru, zesilovače, \acrshort{adc}, triggeru a dalších obvodů
@@ -282,7 +287,7 @@ stavů zvlášť, tedy volba 1:1, 1:10 i 1:100.
     \label{fig:attenuator-example}
 \end{figure}
 
-TODO: Doplnit výstupy simulace
+TODO: Doplnit výstupy simulace a další metody útlumu
 
 \subsubsection{Zesilovače}
 
@@ -320,7 +325,7 @@ takto výrazně chybným měřením a zabráníme tím špatné interpretaci sig
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{adc-aliasing}
-    \caption{Nákres ADC vzorkování při nedodržení Nyquistovy věty (převzato z \cite{OscilloscopeBasicsPrimer})}
+    \caption{Nákres ADC vzorkování při aliasingu (převzato z \cite{OscilloscopeBasicsPrimer})}
     \label{fig:adc-aliasing}
 \end{figure}
 
