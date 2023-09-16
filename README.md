@@ -6,9 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 # OSModIn
 
-
-djkjfhjkdshfjksdhfhdsfhjkdshjkfhkjsdhkj
-
 Osmodin je modulární systém přístrojů a prvků sloužících pro měření, sběr dat a automatizaci experimentů. Celý systém je zamýšlen s možností uložit celý rack do standarních serverových skříň, přičemž ale stále dovolit provoz v kompaktnějších šasí, podobně jako je tomu u PXI systému od National Instruments. Tenhle repozitář obsahuje schématický návrh, návrh mechanické konstrukce a výrobní podklady pro DPS spolu s firmware a software pro moduly a pro rack samotný. **Tento repozitář je stále WIP.**
 
 **Cíle projektu**
