@@ -36,7 +36,7 @@ Osmodin je modulární systém přístrojů a prvků sloužících pro měření
 ## Documentování změn
 
 V tomto repozitáři je CHANGES.md soubor do kterého se zapisují veškeré změny. Při podávání pull requestu prosím zanes své změny i do
-tohoto souboru. Změny se přidávají ve formátu **datum rozsah - krátký popis změn**.
+tohoto souboru. Změny se přidávají ve formátu **datum - rozsah - krátký popis změn**.
 
 This repository includes a CHANGES.md file. We will document all design changes in this file. If you submit a pull request that makes changes to the circuit designs, please update CHANGES.txt with a brief description of your changes.
 
