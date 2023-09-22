@@ -1,0 +1,87 @@
+% SPDX-FileCopyrightText: 2023 2023 Daniel Židek <danielzidek@post.cz>
+%
+% SPDX-License-Identifier: GPL-3.0-or-later
+
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={150mm, 247mm},
+    left={30mm},
+    top={25mm}
+}
+\usepackage[english,czech]{babel}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage[
+    backend=bibtex,
+    style=iso-numeric,
+    currentlang=true,
+    sorting=ynt
+]{biblatex} %Imports biblatex package
+\addbibresource{citations.bib} %Import the bibliography file
+\usepackage[automake, acronym, toc]{glossaries}
+\graphicspath{ {./attachments} }
+
+\makeatletter
+\renewcommand{\fnum@figure}{Obr. \thefigure}
+\makeatother
+
+\makeglossaries
+
+\renewcommand{\contentsname}{Obsah}
+\renewcommand{\listfigurename}{Seznam obrázků}
+\renewcommand{\listtablename}{Seznam tabulek}
+\renewcommand{\refname}{Zdroje}
+
+\title{OSModIn modul oscilosopu}
+\author{Daniel Židek}
+\date{Září 2023}
+
+\begin{document}
+
+\input{acronyms}
+\input{glossaries}
+
+\input{titlePage}
+
+\setcounter{page}{2}
+
+\tableofcontents
+
+\newpage
+
+\addcontentsline{toc}{section}{Seznam obrázků}
+\renewcommand{\listfigurename}{Seznam obrázků}
+\listoffigures
+
+\newpage
+
+\addcontentsline{toc}{section}{Seznam tabulek}
+\renewcommand{\listtablename}{Seznam tabulek}
+\listoftables
+
+\newpage
+
+\section{Časový plán}
+
+\newpage
+
+\printbibliography[
+heading=bibintoc,
+title={Seznam použité literatury}
+]
+
+\newpage
+
+\printglossary[type=\acronymtype, title=Seznam zkratek, toctitle=Seznam zkratek]
+
+\printglossary[title=Slovník pojmů, toctitle=Slovník pojmů]
+
+\end{document}

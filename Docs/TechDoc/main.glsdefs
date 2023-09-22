@@ -1,0 +1,224 @@
+\glsdefs@newdocentry{adc}%
+{%
+name={\acronymfont {\glsentryshort {adc}}},%
+sort={ADC},%
+type={acronym},%
+first={ADC},%
+firstplural={ADCs},%
+text={ADC},%
+plural={ADCs},%
+description={analogově digitální převodník},%
+descriptionplural={analogově digitální převodník},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={analogově digitální převodník},%
+longplural={analogově digitální převodníks},%
+short={ADC},%
+shortplural={ADCs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{casz}%
+{%
+name={\acronymfont {\glsentryshort {casz}}},%
+sort={ČZ},%
+type={acronym},%
+first={ČZ},%
+firstplural={ČZs},%
+text={ČZ},%
+plural={ČZs},%
+description={časová základna},%
+descriptionplural={časová základna},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={časová základna},%
+longplural={časové základny},%
+short={ČZ},%
+shortplural={ČZ},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{dso}%
+{%
+name={\acronymfont {\glsentryshort {dso}}},%
+sort={DSO},%
+type={acronym},%
+first={DSO},%
+firstplural={DSOs},%
+text={DSO},%
+plural={DSOs},%
+description={digitalální paměťový osciloskop},%
+descriptionplural={digitalální paměťový osciloskop},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={digitalální paměťový osciloskop},%
+longplural={digitální paměťové osciloskopy},%
+short={DSO},%
+shortplural={DSO},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ko}%
+{%
+name={\acronymfont {\glsentryshort {ko}}},%
+sort={KO},%
+type={acronym},%
+first={KO},%
+firstplural={KOs},%
+text={KO},%
+plural={KOs},%
+description={klopný obvod},%
+descriptionplural={klopný obvod},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={klopný obvod},%
+longplural={klopný obvods},%
+short={KO},%
+shortplural={KOs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{lcd}%
+{%
+name={\acronymfont {\glsentryshort {lcd}}},%
+sort={LCD},%
+type={acronym},%
+first={LCD},%
+firstplural={LCDs},%
+text={LCD},%
+plural={LCDs},%
+description={liquid crystal display},%
+descriptionplural={liquid crystal display},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={liquid crystal display},%
+longplural={liquid crystal displays},%
+short={LCD},%
+shortplural={LCDs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{nk}%
+{%
+name={\acronymfont {\glsentryshort {nk}}},%
+sort={NK},%
+type={acronym},%
+first={NK},%
+firstplural={NKs},%
+text={NK},%
+plural={NKs},%
+description={napěťový komparátor},%
+descriptionplural={napěťový komparátor},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={napěťový komparátor},%
+longplural={napěťový komparátors},%
+short={NK},%
+shortplural={NKs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{trigger}%
+{%
+name={trigger},%
+sort={trigger},%
+type={main},%
+first={trigger},%
+firstplural={triggers},%
+text={trigger},%
+plural={triggers},%
+description={Spouštěč, systém odpovědný za spuštění \acrlongpl {casz}},%
+descriptionplural={Spouštěč, systém odpovědný za spuštění \acrlongpl {casz}},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{i2c}%
+{%
+name={I²C},%
+sort={I²C},%
+type={main},%
+first={I²C},%
+firstplural={I²Cs},%
+text={I²C},%
+plural={I²Cs},%
+description={Inter-Integrated Circuit je sériová sběrnice používaná nejčastěji u nízkorychlostních periferií},%
+descriptionplural={Inter-Integrated Circuit je sériová sběrnice používaná nejčastěji u nízkorychlostních periferií},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
