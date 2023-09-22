@@ -26,6 +26,7 @@ Osmodin je modulární systém přístrojů a prvků sloužících pro měření
 ## Organizace projektu
 
 - **Docs** - zde najdeš dokumentaci k projektu, zahrnujíc poznámky z vývoje, protokoly měření a testování a další relevantní informace
+    - **Developer notes** - kompilace mých poznámek, nedoporučuji tomu zatím přisuzovat nějakou váhu, ale je to místo ze kterého a do kterého čerpám při tvorbě dokumentace a dalších kusů projektu. Později přidám plnohodnotnou technickou dokumentaci, vypracovanou dle platných norem a nařízení.
 - **Software** - tady najdeš kód pro obslužný software, co poběží u tebe na serveru, pracovní stanici, nebo i počítači
 - **Modules** - v tomto adresáři jsou schémata, výkresy ale i firmware pro jednotlivé moduly
     - **Oscilloscope**

@@ -1,0 +1,152 @@
+<mxfile host="Electron" modified="2023-09-22T02:13:13.031Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="mwi_GebvvFrqpxc0oM3k" version="21.6.8" type="device">
+  <diagram name="Page-1" id="imSMU9uikZpNPTRJtsHY">
+    <mxGraphModel dx="1509" dy="882" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-1" target="uM4PMvbjp8_4j2vEBAn0-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-1" value="Vstupní BNC" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="30" y="70" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-3" target="uM4PMvbjp8_4j2vEBAn0-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-3" value="Coupling přepínač" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="85" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-5" target="uM4PMvbjp8_4j2vEBAn0-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-5" value="Utlumovač (Atten.)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="85" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-7" target="uM4PMvbjp8_4j2vEBAn0-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-7" value="Zesilovač" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="85" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-10" target="uM4PMvbjp8_4j2vEBAn0-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-10" value="Vstupní BNC" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="30" y="150" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-12" target="uM4PMvbjp8_4j2vEBAn0-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-12" value="Coupling přepínač" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="165" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-14" target="uM4PMvbjp8_4j2vEBAn0-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-14" value="Utlumovač (Atten.)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="165" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-15" target="uM4PMvbjp8_4j2vEBAn0-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-15" value="Zesilovač" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="165" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.495;entryY=-0.119;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-18" target="uM4PMvbjp8_4j2vEBAn0-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-18" value="Přepínač kanálů" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="230" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-19" target="uM4PMvbjp8_4j2vEBAn0-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-19" value="Trigger coupling" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="290" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-20">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-20" value="Napěťové komparátory" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="350" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-21" target="uM4PMvbjp8_4j2vEBAn0-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-21" value="12b DAC" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="350" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-28" target="uM4PMvbjp8_4j2vEBAn0-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-33" value="BUS" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="uM4PMvbjp8_4j2vEBAn0-32">
+          <mxGeometry x="-0.0503" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-28" value="ADC&lt;br&gt;8b &amp;gt;=500MSaps" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="85" width="107" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-29" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="100" as="sourcePoint" />
+            <mxPoint x="670" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-30" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="180" as="sourcePoint" />
+            <mxPoint x="670" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-31" target="uM4PMvbjp8_4j2vEBAn0-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-44" value="BUS" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="uM4PMvbjp8_4j2vEBAn0-40">
+          <mxGeometry x="0.4481" y="-2" relative="1" as="geometry">
+            <mxPoint x="2" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-31" value="FPGA" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="85" width="107" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-36" value="FPGA-trigger" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="560" y="430" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-37" target="uM4PMvbjp8_4j2vEBAn0-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="873.5" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-37" value="FPGA-trigger" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="853.5" y="30" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-39" value="RAM&lt;br&gt;&amp;gt;=500MB" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="260" width="107" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="uM4PMvbjp8_4j2vEBAn0-42" target="uM4PMvbjp8_4j2vEBAn0-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="142.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-42" value="DATA BUS" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="127.5" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-45" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#CC6600;fillStyle=auto;dashed=1;glass=0;sketch=1;curveFitting=1;jiggle=2;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="70" width="430" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-47" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#CC6600;fillStyle=auto;dashed=1;glass=0;sketch=1;curveFitting=1;jiggle=2;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="210" width="260" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-48" value="Analogový front-end" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="390" y="40" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uM4PMvbjp8_4j2vEBAn0-49" value="Trigger" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="720" y="220" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
